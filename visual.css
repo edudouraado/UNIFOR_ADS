@@ -1,0 +1,86 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    background-color: rgba(128, 128, 128, 0.384);
+}
+h1 {
+    background: linear-gradient(lightgrey);
+}
+header {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.500),  rgba(0, 47, 255, 0.459),  rgba(0, 0, 0, 0.500)); width: auto;
+    padding: 2px 0 0 20px;
+    text-align: center;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px black;
+}
+.meu-cabecalho {
+    width: auto;
+}
+img {
+    margin: 10px 0 0 0;
+    position: relative;
+    right: 14em;
+    border: 1px solid;
+    border-radius: 10px;
+}
+h1 {
+    margin: auto;
+    position: relative;
+    left: 1em;
+    bottom: 4em;
+    font-weight: bold;
+    font-size: 1em;
+}
+.container-conteudo {
+    text-align: center;
+    line-height: 1em;
+    width: auto;
+}
+h2 {
+    font-weight: bold;
+    margin: 50px 0 0 0;
+    text-shadow: 6px 6px 18px black;
+}
+p a {
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+}
+p a:hover {
+    text-decoration: underline;
+    color: var(black);
+}
+li p {
+    line-height: 2em;
+}
+.container-contato {
+    margin: 0 0 0 10px;
+    text-align: center;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+footer {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.600),  rgba(0, 47, 255, 0.459),  rgba(0, 0, 0, 0.600));
+    width: auto;
+    font-weight: bold;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px black;
+}
+footer a {
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
+.copyright {
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px 0 20px 0;
+}
