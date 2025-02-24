@@ -1,0 +1,10 @@
+<div>
+    <h2>Contact List</h2>
+    <app-contact
+      *ngFor="let contact of contacts"
+      [name]="contact.name"
+      [email]="contact.email"
+      [phone]="contact.phone">
+    </app-contact>
+  </div>
+  

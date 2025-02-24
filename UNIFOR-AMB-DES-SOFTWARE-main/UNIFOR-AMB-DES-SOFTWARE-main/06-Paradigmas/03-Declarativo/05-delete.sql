@@ -1,0 +1,15 @@
+
+
+DELETE FROM ESTUDANTES
+WHERE id_estudante = 2;
+
+DELETE FROM INSCRICOES
+WHERE id_estudante = 1
+    AND id_curso = 103;
+
+DELETE FROM INSCRICOES
+WHERE id_curso = 103;
+
+
+
+
