@@ -1,6 +1,6 @@
 package primeiraAula;
 
-class main {
+class Main {
     public static void main(String[] args) {
         pessoa p1 = new pessoa("Eduardo Dourado", 2000, 78, 1.73);
         pessoa p2 = new pessoa("Ana Kelly Moura", 2003, 70, 1.70);
