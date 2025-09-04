@@ -1,50 +1,250 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site aleatório muito maneiro</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AutoInfo - Sua Fonte sobre Carros</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>CARROS</h1>
+        <h1 class="destaque">AUTOINFO</h1>
+        <p style="text-align: center;"> Sua fonte confiável sobre o mundo automotivo</p>
     </header>
+
     <nav>
         <ul>
-            <li>INICIO</li>
+            <li>INÍCIO</li>
             <li>CARROS</li>
             <li>CORES</li>
+            <li>COMPARATIVO</li>
             <li>CONTATO</li>
         </ul>
     </nav>
-    <section>
-        <article>
-            <h2>Carros mais vendidos no BRASIL.</h2>
-            <p>1. Chevrolet Onix</p>
-            <img src="imgs/onix.png" alt="">
-            <p>2. Hyundai HB20</p>
-            <img src="imgs/hb20.png" alt="">
-            <p>3. Fiat Argo</p>
-            <img src="imgs/argo.png" alt="">
-            <p>4. Ford Ka</p>
-            <img src="imgs/ford ka.png" alt="">
-            <p>5. Volkswagen Gol</p>
-            <img src="imgs/vw gol.png" alt="" width="500px">
 
-            <h2>História dos Carros no Brasil.</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui facilis hic nam laborum aliquid iste voluptatem maxime nostrum modi! Consequuntur deleniti reprehenderit veritatis impedit rem. Eos reiciendis vel possimus dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt voluptas excepturi corrupti, laudantium at ad ipsa? Totam minima rem, odio tenetur ipsum, cupiditate sapiente facere porro quisquam aperiam, aut enim!</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae, expedita cupiditate velit porro ad veniam praesentium soluta vitae vel dolor sapiente incidunt tempora laudantium omnis officia perspiciatis debitis hic molestias!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis fugit totam tempora voluptate repudiandae vero. Necessitatibus modi atque alias vitae aliquid, nisi veniam, maxime magni provident minima, quia illum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sit et sunt? Saepe sed autem earum beatae nisi dolore magni molestias, illum consectetur fugiat corporis perspiciatis ad ullam, natus hic.</p>
+    <div class="container">
+        <section>
+            <article>
+                <h2>Carros mais vendidos no BRASIL</h2>
+                
+                <div class="car-list">
+                    <div class="car-item">
+                        <!-- Inline Style (Conflito 1) -->
+                        <p class="conflito1" style="color: brown;">1. Chevrolet Onix</p>
+                        <img src="imgs/onix.png" alt="Chevrolet Onix" />
+                        <p>O Chevrolet Onix lidera as vendas no Brasil com seu design moderno, tecnologia e economia de combustível.</p>
+                    </div>
+                    
+                    <div class="car-item">
+                        <p id="conflito2" class="conflito2">2. Hyundai HB20</p>
+                        <img src="imgs/hb20.png" alt="Hyundai HB20" />
+                        <p>O Hyundai HB20 conquistou o mercado brasileiro com seu design arrojado e completos itens de série.</p>
+                    </div>
+                    
+                    <div class="car-item">
+                        <!-- Inline vs ID (Conflito 3) -->
+                        <p id="conflito3" style="font-size: 40px;">3. Fiat Argo</p>
+                        <img src="imgs/argo.png" alt="Fiat Argo" />
+                        <p>O Fiat Argo se destaca pelo seu interior espaçoso e motor eficiente, sendo uma excelente opção urbana.</p>
+                    </div>
+                    
+                    <div class="car-item">
+                        <p>4. Ford Ka</p>
+                        <img src="imgs/ford ka.png" alt="Ford Ka" />
+                        <p>O Ford Ka oferece dirigibilidade ágil e um conjunto mecânico que une desempenho e economia.</p>
+                    </div>
+                    
+                    <div class="car-item">
+                        <p class="destaque">5. Volkswagen Gol</p>
+                        <img src="imgs/vw gol.png" alt="Volkswagen Gol" width="500" />
+                        <p>O Volkswagen Gol é um tradicional sucesso de vendas, conhecido por sua robustez e baixo custo de manutenção.</p>
+                    </div>
+                </div>
 
-            <h2>Tabela Fipe</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis deserunt, voluptas neque adipisci, iusto porro tempore, aspernatur numquam distinctio quae hic? Repellendus sit quod commodi, inventore veniam debitis cum fugit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem. Quisquam, quidem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem. Quisquam, quidem.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis deserunt, voluptas neque adipisci, iusto porro tempore, aspernatur numquam distinctio quae hic? Repellendus sit quod commodi, inventore veniam debitis cum fugit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem. Quisquam, quidem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem. Quisquam, quidem.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis deserunt, voluptas neque </p>
-        </article>
-    </section>
+                <h2>História dos Carros no Brasil</h2>
+                <p>A indústria automobilística brasileira começou efetivamente na década de 1950, com a instalação das primeiras montadoras no país. O primeiro carro nacional foi o Romi-Isetta, em 1956, mas foi com a chegada da Volkswagen, Ford, General Motors e Fiat que o mercado se consolidou.</p>
+                <p>Na década de 1990, com a abertura do mercado, novas montadoras chegaram ao Brasil, como Honda, Toyota, Renault e Hyundai, aumentando a competitividade e a oferta de modelos. Hoje, o Brasil é um dos maiores mercados automotivos do mundo.</p>
+                <p>O setor automotivo brasileiro é caracterizado pela produção de veículos flex, que podem utilizar tanto etanol quanto gasolina, uma tecnologia pioneira no mundo desenvolvida pela engenharia brasileira.</p>
+
+                <h2>Tabela FIPE</h2>
+                <p>A Tabela FIPE (Fundação Instituto de Pesquisas Econômicas) é a referência para preços de veículos no Brasil. Ela é atualizada mensalmente e considerada o principal indicador para compra, venda e avaliação de veículos usados.</p>
+                <p>Os valores da Tabela FIPE são determinados através de pesquisas mensais realizadas com concessionárias e revendedoras em todo o país, considerando fatores como ano/modelo, marca, equipamentos e estado de conservação.</p>
+                <p>Consultar a Tabela FIPE é essencial para negociações justas no mercado de veículos, tanto para compradores quanto para vendedores.</p>
+
+        <!-- Seção de Comparação de Carros -->
+        <section>
+            <article>
+                <h2>Comparativo entre os Modelos</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Preço Médio</th>
+                            <th>Consumo (km/l)</th>
+                            <th>Potência (cv)</th>
+                            <th>Porta-Malas (L)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chevrolet Onix</td>
+                            <td>R$ 75.000</td>
+                            <td>14,2</td>
+                            <td>116</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>Hyundai HB20</td>
+                            <td>R$ 78.500</td>
+                            <td>13,8</td>
+                            <td>120</td>
+                            <td>295</td>
+                        </tr>
+                        <tr>
+                            <td>Fiat Argo</td>
+                            <td>R$ 72.900</td>
+                            <td>14,5</td>
+                            <td>109</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>Ford Ka</td>
+                            <td>R$ 69.990</td>
+                            <td>15,1</td>
+                            <td>112</td>
+                            <td>280</td>
+                        </tr>
+                        <tr>
+                            <td>Volkswagen Gol</td>
+                            <td>R$ 68.800</td>
+                            <td>13,9</td>
+                            <td>106</td>
+                            <td>285</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+        <!-- Seção de Dicas -->
+        <section>
+            <article>
+                <h2>Dicas para Compra e Manutenção</h2>
+                <div class="info-cards">
+                    <div class="card">
+                        <h3>Antes de Comprar</h3>
+                        <p>Pesquise o histórico do veículo, verifique documentação e faça um test drive. Consulte a tabela FIPE para saber o preço justo.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Manutenção Preventiva</h3>
+                        <p>Faça revisões periódicas, troque óleo e filtros no prazo recomendado e sempre verifique pneus e freios.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Economia de Combustível</h3>
+                        <p>Mantenha os pneus calibrados, evite cargas desnecessárias e pratique uma direção suave para economizar combustível.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Formulário de Contato -->
+        <section>
+            <article>
+                <h2>Fale Conosco</h2>
+                <p>Tem dúvidas sobre carros ou sugestões para nosso site? Entre em contato!</p>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="assunto">Assunto:</label>
+                        <select id="assunto" name="assunto">
+                            <option value="">Selecione um assunto</option>
+                            <option value="duvida">Dúvida sobre carros</option>
+                            <option value="sugestao">Sugestão para o site</option>
+                            <option value="anuncio">Anúncio de veículo</option>
+                            <option value="outro">Outro assunto</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </article>
+        </section>
+         <!-- Seção Explicativa adicionada -->
+                <h2>Explicações Importantes sobre CSS</h2>
+
+                <h3>1. Três formas de estilização CSS</h3>
+                <ul>
+                    <li><strong>Inline:</strong> Estilo aplicado diretamente no elemento via atributo <code>style=""</code>. Exemplo: <code>&lt;p style="color: red;"&gt;Texto&lt;/p&gt;</code></li>
+                    <li><strong>Internal:</strong> Estilo escrito dentro da tag <code>&lt;style&gt;</code> no <code>&lt;head&gt;</code> do documento HTML.</li>
+                    <li><strong>External:</strong> Estilo separado em arquivo <code>.css</code> externo, importado via <code>&lt;link&gt;</code>.</li>
+                </ul>
+
+                <h3>2. Seletores CSS usados no projeto</h3>
+                <ul>
+                    <li><strong>Tag:</strong> Seleciona elementos pelo nome da tag. Exemplo: <code>p {}</code></li>
+                    <li><strong>Classe:</strong> Seleciona elementos com determinada classe. Exemplo: <code>.destaque {}</code></li>
+                    <li><strong>ID:</strong> Seleciona elemento único pelo id. Exemplo: <code>#especial {}</code></li>
+                    <li><strong>Atributo:</strong> Seleciona elementos com determinado atributo. Exemplo: <code>img[alt] {}</code></li>
+                    <li><strong>Pseudo-classe:</strong> Estilos para estado do elemento. Exemplo: <code>nav ul li:hover {}</code></li>
+                    <li><strong>Pseudo-elemento:</strong> Seleciona parte do conteúdo do elemento. Exemplo: <code>p::first-line {}</code></li>
+                </ul>
+
+                <h3>3. Conflitos de CSS criados no projeto</h3>
+                <ul>
+                    <li><strong>Conflito 1:</strong> Classe vs Inline style<br />
+                        Exemplo: <code>&lt;p class="conflito1" style="color: brown;"&gt;Texto&lt;/p&gt;</code><br />
+                        <em>Prioridade maior para o estilo inline (cor marrom) sobre a classe (.conflito1) que define roxo.</em>
+                    </li>
+                    <li><strong>Conflito 2:</strong> ID vs Classe<br />
+                        Exemplo: <code>&lt;p id="conflito2" class="conflito2"&gt;Texto&lt;/p&gt;</code><br />
+                        <em>ID tem maior especificidade que classe, cor laranja do id prevalece sobre rosa da classe.</em>
+                    </li>
+                    <li><strong>Conflito 3:</strong> Inline style vs ID<br />
+                        Exemplo: <code>&lt;p id="conflito3" style="font-size: 40px;"&gt;Texto&lt;/p&gt;</code><br />
+                        <em>Inline style tem prioridade maior que ID, tamanho fica 40px (inline) sobre 30px (ID).</em>
+                    </li>
+                </ul>
+
+                <h3>4. Prioridade dos estilos CSS (especificidade)</h3>
+                <ol>
+                    <li>Inline style (atributo style) - maior prioridade.</li>
+                    <li>Seletores ID.</li>
+                    <li>Classes, pseudo-classes e atributos.</li>
+                    <li>Seletores de tag e pseudo-elementos.</li>
+                    <li>Quando empate, o último estilo declarado vence.</li>
+                </ol>
+
+                <h3>5. Exemplos de combinadores CSS usados</h3>
+                <ul>
+                    <li><strong>Descendente (div p):</strong> Seleciona todo <code>p</code> dentro de <code>div</code>, em qualquer nível.</li>
+                    <li><strong>Filho direto (div > p):</strong> Seleciona <code>p</code> que são filhos imediatos de <code>div</code>.</li>
+                    <li><strong>Adjacente (h2 + p):</strong> Seleciona <code>p</code> imediatamente após <code>h2</code>.</li>
+                    <li><strong>Irmão geral (h2 ~ p):</strong> Seleciona todos <code>p</code> que são irmãos (mesmo pai) após <code>h2</code>.</li>
+                </ul>
+            </article>
+        </section>
+    </div>
+
     <footer>
-        <p>Site aleatório muito maneiro - 2024 <br>
-        Desenvolvido por <a href="https://github.com/edudouraado" target="_blank"> @edudouraado</a> </p>
+        <p>
+            AutoInfo - Sua Fonte sobre Carros - 2024 <br />
+            Desenvolvido por <a href="https://github.com/edudouraado" target="_blank">@edudouraado</a>
+        </p>
     </footer>
 </body>
 </html>
