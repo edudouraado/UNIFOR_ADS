@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Exo 2', sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #b0b0b0;
+    font-size: 1.1em;
+}
+
+.input-section {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#carInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#carInput:focus {
+    outline: none;
+    border-color: #48dbfb;
+    box-shadow: 0 0 15px rgba(72, 219, 251, 0.3);
+}
+
+#carInput::placeholder {
+    color: #888;
+}
+
+button {
+    padding: 15px 25px;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.stats span {
+    font-weight: 600;
+    color: #48dbfb;
+}
+
+.car-list {
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.car-item {
+    background: rgba(255, 255, 255, 0.08);
+    margin: 10px 0;
+    padding: 18px 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-left: 4px solid #48dbfb;
+    cursor: pointer;
+}
+
+.car-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(5px);
+}
+
+.car-item.seen {
+    opacity: 0.7;
+    border-left-color: #10ac84;
+}
+
+.car-item.seen .car-name {
+    text-decoration: line-through;
+    color: #10ac84;
+}
+
+.car-name {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.car-date {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 5px;
+}
+
+.car-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-btn {
+    background: #ff6b6b;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #ee5a5a;
+    transform: scale(1.05);
+}
+
+.instructions {
+    text-align: center;
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    color: #b0b0b0;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+}
+
+.empty-state p:first-child {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.car-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.car-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.car-list::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .input-section {
+        flex-direction: column;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .car-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .car-actions {
+        align-self: flex-end;
+    }
+}

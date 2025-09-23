@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supercar Wishlist</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 SUPERCARROS LIST</h1>
+            <p>Lista dos supercarros que pretendo conhecer</p>
+        </header>
+        
+        <div class="input-section">
+            <input type="text" id="carInput" placeholder="Ex: Ferrari F8 Tributo, Lamborghini Aventador..." maxlength="50">
+            <button id="addButton">ADICIONAR</button>
+        </div>
+        
+        <div class="stats">
+            <span id="totalCars">Total: 0</span>
+            <span id="seenCars">Vistos: 0</span>
+        </div>
+        
+        <ul id="carList" class="car-list"></ul>
+        
+        <div class="instructions">
+            <p>💡 <strong>Dica:</strong> Clique no carro para marcar como "já visto"</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
