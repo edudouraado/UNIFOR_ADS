@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Game Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎴 Card Game Hub</h1>
+            <p>Jogos clássicos com baralho virtual</p>
+        </header>
+
+        <div class="game-selection">
+            <button class="game-btn active" data-game="blackjack">Blackjack</button>
+            <button class="game-btn" data-game="war">Guerra</button>
+            <button class="game-btn" data-game="solitaire">Paciência</button>
+            <button class="game-btn" data-game="memory">Memória</button>
+        </div>
+
+        <main>
+            <!-- Blackjack Game -->
+            <div id="blackjack" class="game-container active">
+                <div class="game-header">
+                    <h2>♠️ Blackjack</h2>
+                    <div class="game-stats">
+                        <span>Saldo: $<span id="balance">1000</span></span>
+                        <span>Aposta: $<span id="bet-amount">50</span></span>
+                    </div>
+                </div>
+
+                <div class="bet-controls">
+                    <button class="bet-btn" data-amount="10">$10</button>
+                    <button class="bet-btn" data-amount="50">$50</button>
+                    <button class="bet-btn" data-amount="100">$100</button>
+                    <button id="deal-btn">Dar Cartas</button>
+                </div>
+
+                <div class="game-area">
+                    <div class="dealer-area">
+                        <h3>Dealer</h3>
+                        <div id="dealer-cards" class="cards-container"></div>
+                        <div class="score">Pontuação: <span id="dealer-score">0</span></div>
+                    </div>
+
+                    <div class="player-area">
+                        <h3>Jogador</h3>
+                        <div id="player-cards" class="cards-container"></div>
+                        <div class="score">Pontuação: <span id="player-score">0</span></div>
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <button id="hit-btn" disabled>Pedir Carta</button>
+                    <button id="stand-btn" disabled>Parar</button>
+                    <button id="double-btn" disabled>Dobrar</button>
+                </div>
+
+                <div id="game-message" class="message"></div>
+            </div>
+
+            <!-- War Game -->
+            <div id="war" class="game-container">
+                <div class="game-header">
+                    <h2>⚔️ Guerra</h2>
+                    <div class="game-stats">
+                        <span>Vitórias: <span id="war-wins">0</span></span>
+                        <span>Rodadas: <span id="war-rounds">0</span></span>
+                    </div>
+                </div>
+
+                <div class="war-area">
+                    <div class="war-player">
+                        <h3>Jogador</h3>
+                        <div id="war-player-card" class="war-card-slot"></div>
+                        <div class="deck-count">Cartas: <span id="player-deck-count">26</span></div>
+                    </div>
+
+                    <div class="war-battle">
+                        <div id="war-battle-cards" class="battle-cards"></div>
+                        <button id="war-battle-btn">Batalhar!</button>
+                    </div>
+
+                    <div class="war-dealer">
+                        <h3>CPU</h3>
+                        <div id="war-dealer-card" class="war-card-slot"></div>
+                        <div class="deck-count">Cartas: <span id="dealer-deck-count">26</span></div>
+                    </div>
+                </div>
+
+                <div id="war-message" class="message"></div>
+            </div>
+
+            <!-- Memory Game -->
+            <div id="memory" class="game-container">
+                <div class="game-header">
+                    <h2>🧠 Jogo da Memória</h2>
+                    <div class="game-stats">
+                        <span>Movimentos: <span id="moves">0</span></span>
+                        <span>Pares: <span id="pairs">0</span>/26</span>
+                    </div>
+                </div>
+
+                <div class="memory-controls">
+                    <button id="start-memory">Iniciar Jogo</button>
+                    <button id="reset-memory">Reiniciar</button>
+                </div>
+
+                <div id="memory-grid" class="memory-grid"></div>
+            </div>
+
+            <!-- Solitaire -->
+            <div id="solitaire" class="game-container">
+                <div class="game-header">
+                    <h2>♣️ Paciência</h2>
+                    <div class="game-stats">
+                        <span>Movimentos: <span id="solitaire-moves">0</span></span>
+                        <span>Tempo: <span id="solitaire-time">0s</span></span>
+                    </div>
+                </div>
+
+                <div class="solitaire-controls">
+                    <button id="start-solitaire">Novo Jogo</button>
+                    <button id="hint-solitaire">Dica</button>
+                </div>
+
+                <div id="solitaire-board" class="solitaire-board">
+                    <div class="coming-soon">
+                        <h3>🎮 Em Desenvolvimento</h3>
+                        <p>Esta versão simplificada está focada no Blackjack e Guerra.</p>
+                        <p>O jogo de paciência completo será implementado em breve!</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,455 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #667eea;
+    --primary-dark: #5a6fd8;
+    --bg: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --text: #ffffff;
+    --text-secondary: #b0b0b0;
+    --success: #4ade80;
+    --danger: #f87171;
+    --warning: #fbbf24;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary), #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* Game Selection */
+.game-selection {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.game-btn {
+    padding: 1rem 1.5rem;
+    background: var(--card-bg);
+    border: 2px solid #333;
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.game-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.game-btn.active {
+    background: linear-gradient(135deg, var(--primary), #764ba2);
+    border-color: transparent;
+}
+
+/* Game Containers */
+.game-container {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.game-container.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+}
+
+.game-header h2 {
+    font-size: 1.5rem;
+}
+
+.game-stats {
+    display: flex;
+    gap: 2rem;
+    font-weight: 600;
+}
+
+/* Blackjack Styles */
+.bet-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.bet-btn, #deal-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--card-bg);
+    border: 2px solid #333;
+    border-radius: 8px;
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bet-btn:hover, #deal-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+#deal-btn {
+    background: linear-gradient(135deg, var(--primary), #764ba2);
+    border-color: transparent;
+}
+
+.game-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.dealer-area, .player-area {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 2px solid #333;
+}
+
+.dealer-area h3, .player-area h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    min-height: 120px;
+    align-items: center;
+}
+
+.card {
+    width: 80px;
+    height: 112px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card.red {
+    color: #dc2626;
+}
+
+.card.back {
+    background: linear-gradient(45deg, var(--primary), #764ba2);
+    color: white;
+}
+
+.score {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.game-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.game-controls button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#hit-btn {
+    background: var(--success);
+    color: white;
+}
+
+#stand-btn {
+    background: var(--warning);
+    color: white;
+}
+
+#double-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.game-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.game-controls button:not(:disabled):hover {
+    transform: translateY(-2px);
+}
+
+/* War Game Styles */
+.war-area {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.war-player, .war-dealer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 16px;
+}
+
+.war-card-slot {
+    width: 120px;
+    height: 168px;
+    margin: 1rem auto;
+    background: #333;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #666;
+}
+
+.war-battle {
+    text-align: center;
+}
+
+.battle-cards {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+    min-height: 168px;
+    align-items: center;
+}
+
+#war-battle-btn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary), #764ba2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#war-battle-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Memory Game Styles */
+.memory-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.memory-controls button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary), #764ba2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.memory-controls button:hover {
+    transform: translateY(-2px);
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.memory-card {
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--primary), #764ba2);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.memory-card.flipped {
+    background: white;
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* Message Styles */
+.message {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.message.success {
+    background: var(--success);
+    color: white;
+}
+
+.message.error {
+    background: var(--danger);
+    color: white;
+}
+
+.message.info {
+    background: var(--primary);
+    color: white;
+}
+
+/* Coming Soon */
+.coming-soon {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 2px dashed #333;
+}
+
+.coming-soon h3 {
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .game-selection {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .game-area {
+        grid-template-columns: 1fr;
+    }
+    
+    .war-area {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .memory-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .game-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .game-stats {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .memory-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .card {
+        width: 60px;
+        height: 84px;
+        font-size: 1rem;
+    }
+    
+    .war-card-slot {
+        width: 90px;
+        height: 126px;
+    }
+}
