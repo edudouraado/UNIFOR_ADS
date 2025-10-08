@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 SearchPics - Pesquisa de Imagens</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-camera"></i>
+                <h1>SearchPics</h1>
+            </div>
+            <p class="tagline">Encontre imagens incríveis com um clique</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Digite o que você está procurando... (ex: paisagem, animais, tecnologia)"
+                            autocomplete="off"
+                        >
+                        <button id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                            Pesquisar
+                        </button>
+                    </div>
+                    
+                    <!-- Quick Categories -->
+                    <div class="quick-categories">
+                        <span>Categorias rápidas:</span>
+                        <button class="category-btn" data-category="nature">
+                            <i class="fas fa-tree"></i> Natureza
+                        </button>
+                        <button class="category-btn" data-category="technology">
+                            <i class="fas fa-laptop"></i> Tecnologia
+                        </button>
+                        <button class="category-btn" data-category="animals">
+                            <i class="fas fa-paw"></i> Animais
+                        </button>
+                        <button class="category-btn" data-category="food">
+                            <i class="fas fa-utensils"></i> Comida
+                        </button>
+                        <button class="category-btn" data-category="travel">
+                            <i class="fas fa-mountain"></i> Viagens
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filters -->
+            <section class="filters-section">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="sortSelect"><i class="fas fa-sort"></i> Ordenar por:</label>
+                        <select id="sortSelect">
+                            <option value="relevant">Mais Relevantes</option>
+                            <option value="latest">Mais Recentes</option>
+                            <option value="popular">Mais Populares</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="colorFilter"><i class="fas fa-palette"></i> Cor:</label>
+                        <select id="colorFilter">
+                            <option value="">Todas as cores</option>
+                            <option value="black_and_white">Preto e Branco</option>
+                            <option value="black">Preto</option>
+                            <option value="white">Branco</option>
+                            <option value="yellow">Amarelo</option>
+                            <option value="red">Vermelho</option>
+                            <option value="purple">Roxo</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="orientationFilter"><i class="fas fa-expand"></i> Orientação:</label>
+                        <select id="orientationFilter">
+                            <option value="">Todas</option>
+                            <option value="landscape">Paisagem</option>
+                            <option value="portrait">Retrato</option>
+                            <option value="squarish">Quadrada</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results -->
+            <section class="results-section">
+                <div id="resultsInfo" class="results-info hidden">
+                    <span id="resultsCount">0</span> resultados encontrados para "<span id="searchTerm"></span>"
+                </div>
+
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Procurando imagens incríveis...</p>
+                </div>
+
+                <div id="error" class="error hidden">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="errorMessage"></span>
+                </div>
+
+                <div id="results" class="results-grid"></div>
+
+                <div id="loadMoreContainer" class="load-more hidden">
+                    <button id="loadMoreBtn" class="load-more-btn">
+                        <i class="fas fa-plus"></i>
+                        Carregar Mais Imagens
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="image-details">
+                <h3 id="modalTitle"></h3>
+                <p id="modalAuthor"></p>
+                <div class="image-stats">
+                    <span><i class="fas fa-heart"></i> <span id="modalLikes"></span></span>
+                    <span><i class="fas fa-eye"></i> <span id="modalViews"></span></span>
+                    <span><i class="fas fa-download"></i> <span id="modalDownloads"></span></span>
+                </div>
+                <a id="modalDownload" href="#" target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Download
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SearchPics. Desenvolvido com ❤️ usando Unsplash API</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
