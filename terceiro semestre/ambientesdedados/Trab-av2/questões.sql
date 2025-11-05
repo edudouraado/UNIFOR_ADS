@@ -1,0 +1,256 @@
+#Eduardo Dourado
+
+#DML Básico
+#1- 
+update categoria set Descricao = 'Eletrônicos' where idcategoria = 1;
+
+#2-
+SELECT MAX(idproduto) FROM produto;
+
+INSERT INTO produto (idproduto, Nome, Descricao, Preco, QuantEstoque, categoria_idcategoria)
+VALUES (70010, 'Notebook', 'Accer Nitro 5', 2500.00, 10, 1);
+
+#3- 
+UPDATE produto SET Preco = 2700 WHERE idproduto = 1;
+
+#4-
+SELECT Nome,Preco FROM produto WHERE categoria_idcategoria = 1;
+
+#5- 
+DELETE FROM pedido_has_produto WHERE produto_idproduto = 1; (tive que apagar as relações para retirar a chave primária e assim apagar os dados)
+DELETE FROM produto WHERE idproduto = 1;
+
+#6-
+SELECT * FROM tipocliente;
+INSERT INTO tipocliente (idtipocliente, Descricao) VALUES (3, 'Regular');
+INSERT INTO tipocliente (idtipocliente, Descricao) VALUES (4, 'VIP');
+
+#7-
+SELECT 
+    c.Nome AS NomeDoCliente,
+    T.Descricao AS TipoDeCliente
+FROM 
+    cliente c 
+INNER JOIN 
+    tipocliente T 
+    ON c.tipocliente_idtipocliente = T.idtipocliente;
+
+#8-
+UPDATE produto 
+SET QuantEstoque = 5
+WHERE categoria_idcategoria = 1;
+
+
+#AGREGAÇÃO
+#1- 
+select count(Nome) from produto;
+
+#2- 
+select avg(Preco) from produto;
+
+#3- 
+select count(Nome) from cliente;
+
+#4-
+select max(preco) from produto;
+
+#5-
+select avg(Quantidade) from pedido_has_produto;
+
+
+#Junção
+#1-
+SELECT c.Nome,s.Descricao FROM pedido AS p INNER JOIN cliente AS c ON p.cliente_idcliente = c.idcliente INNER JOIN status AS s ON p.status_idstatus = s.idstatus;
+
+#2- 
+SELECT
+    p.Nome,
+    c.Descricao
+FROM
+    produto AS p
+LEFT JOIN
+    categoria AS c ON p.categoria_idcategoria = c.idcategoria;
+
+#3- 
+SELECT
+    tc.Descricao,
+    c.Nome
+FROM
+    tipocliente AS tc
+LEFT JOIN
+    cliente AS c ON tc.idtipocliente = c.tipocliente_idtipocliente;
+
+#4-
+SELECT
+    c.Nome,
+    te.Descricao
+FROM
+    cliente AS c
+CROSS JOIN
+    tipoendereco AS te;
+
+#5-
+SELECT
+    c.Nome AS NomeCliente,
+    pr.Nome AS NomeProduto,
+    pp.Quantidade
+FROM
+    cliente AS c
+INNER JOIN
+    pedido AS p ON c.idcliente = p.cliente_idcliente
+INNER JOIN
+    pedido_has_produto AS pp ON p.idpedido = pp.pedido_idpedido
+INNER JOIN
+    produto AS pr ON pp.produto_idproduto = pr.idproduto;
+
+
+#6- 
+SELECT
+    c.Nome,
+    e.Logradouro,
+    e.Numero,
+    e.Bairro,
+    e.Cidade,
+    e.UF
+FROM
+    cliente AS c
+LEFT JOIN
+    endereco AS e ON c.idcliente = e.cliente_idcliente;
+
+#7-
+SELECT
+    pr.Nome,
+    COALESCE(SUM(pp.Quantidade), 0) AS QuantidadeTotalVendida
+FROM
+    produto AS pr
+LEFT JOIN
+    pedido_has_produto AS pp ON pr.idproduto = pp.produto_idproduto
+GROUP BY
+    pr.idproduto, pr.Nome;
+
+#8-
+SELECT
+    c.Nome,
+    p.DataPedido,
+    p.ValorTotalPedido
+FROM
+    cliente AS c
+INNER JOIN
+    pedido AS p ON c.idcliente = p.cliente_idcliente
+WHERE
+    c.idcliente = 1;
+
+
+#Agregação e Junção
+#1-
+USE bd_vendas;
+
+SELECT
+    c.Descricao,
+    COUNT(p.idproduto) AS QuantidadeDeProdutos
+FROM
+    categoria AS c
+LEFT JOIN
+    produto AS p ON c.idcategoria = p.categoria_idcategoria
+GROUP BY
+    c.idcategoria, c.Descricao
+ORDER BY
+    c.Descricao;
+
+#2-
+SELECT
+    c.Descricao,
+    COALESCE(SUM(p.QuantEstoque), 0) AS EstoqueTotal
+FROM
+    categoria AS c
+LEFT JOIN
+    produto AS p ON c.idcategoria = p.categoria_idcategoria
+GROUP BY
+    c.idcategoria, c.Descricao
+ORDER BY
+    c.Descricao;
+
+#3-
+SELECT
+    s.Descricao,
+    COUNT(p.idpedido) AS QuantidadeDePedidos
+FROM
+    status AS s
+LEFT JOIN
+    pedido AS p ON s.idstatus = p.status_idstatus
+GROUP BY
+    s.idstatus, s.Descricao
+ORDER BY
+    s.Descricao;
+
+#4-
+SELECT
+    tc.Descricao,
+    COUNT(c.idcliente) AS QuantidadeDeClientes
+FROM
+    tipocliente AS tc
+LEFT JOIN
+    cliente AS c ON tc.idtipocliente = c.tipocliente_idtipocliente
+GROUP BY
+    tc.idtipocliente, tc.Descricao
+ORDER BY
+    tc.Descricao;
+
+#Subconsulta
+#1-
+SELECT
+    Nome,
+    Preco
+FROM
+    produto
+WHERE
+    Preco > (SELECT AVG(Preco) FROM produto)
+ORDER BY
+    Preco DESC;
+
+#2-
+USE bd_vendas;
+
+SELECT DISTINCT
+    c.Nome
+FROM
+    cliente AS c
+INNER JOIN
+    pedido AS p ON c.idcliente = p.cliente_idcliente;
+
+#3-
+SELECT
+    p.idpedido,
+    (
+        SELECT
+            pr.Nome
+        FROM
+            pedido_has_produto AS pp
+        INNER JOIN
+            produto AS pr ON pp.produto_idproduto = pr.idproduto
+        WHERE
+            pp.pedido_idpedido = p.idpedido         ORDER BY
+            pr.Preco DESC                    
+        LIMIT 1                              
+    ) AS ProdutoMaisCaro
+FROM
+    pedido AS p
+WHERE
+    EXISTS (
+        SELECT 1
+        FROM pedido_has_produto pp2
+        WHERE pp2.pedido_idpedido = p.idpedido
+    )
+ORDER BY
+    p.idpedido;
+
+#4-
+SELECT DISTINCT
+    c.Nome
+FROM
+    cliente AS c
+INNER JOIN
+    pedido AS p ON c.idcliente = p.cliente_idcliente
+WHERE
+    p.ValorTotalPedido > (SELECT AVG(ValorTotalPedido) FROM pedido);
+

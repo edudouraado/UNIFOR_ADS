@@ -1,0 +1,60 @@
+DML Básico
+1- 
+update categoria set Descricao = 'Eletrônicos' where idcategoria = 1;
+
+2-
+SELECT MAX(idproduto) FROM produto;
+
+INSERT INTO produto (idproduto, Nome, Descricao, Preco, QuantEstoque, categoria_idcategoria)
+VALUES (70010, 'Notebook', 'Accer Nitro 5', 2500.00, 10, 1);
+
+3- 
+UPDATE produto SET Preco = 2700 WHERE idproduto = 1;
+
+4-
+SELECT Nome,Preco FROM produto WHERE categoria_idcategoria = 1;
+
+5- 
+DELETE FROM pedido_has_produto WHERE produto_idproduto = 1; (tive que apagar as relações para retirar a chave primária e assim apagar os dados)
+DELETE FROM produto WHERE idproduto = 1;
+
+6-
+SELECT * FROM tipocliente;
+INSERT INTO tipocliente (idtipocliente, Descricao) VALUES (3, 'Regular');
+INSERT INTO tipocliente (idtipocliente, Descricao) VALUES (4, 'VIP');
+
+7-
+SELECT 
+    c.Nome AS NomeDoCliente,
+    T.Descricao AS TipoDeCliente
+FROM 
+    cliente c 
+INNER JOIN 
+    tipocliente T 
+    ON c.tipocliente_idtipocliente = T.idtipocliente;
+
+8-
+UPDATE produto 
+SET QuantEstoque = 5
+WHERE categoria_idcategoria = 1;
+
+
+AGREGAÇÃO
+1- 
+select count(Nome) from produto;
+
+2- 
+select avg(Preco) from produto;
+
+3- 
+select count(Nome) from cliente;
+
+4-
+select max(preco) from produto;
+
+5-
+select avg(Quantidade) from pedido_has_produto;
+
+
+Junção
+
